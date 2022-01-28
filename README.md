@@ -1,4 +1,4 @@
-# Javascript Quiz project
+# Day Planning
 
 ## Description
 
@@ -8,30 +8,38 @@ Published at: https://https://corhydare.github.io/PlannerOfDays/
 
 Following instructions were given:
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+```md
+GIVEN I am using a daily planner to create a schedule
+WHEN I open the planner
+THEN the current day is displayed at the top of the calendar
+WHEN I scroll down
+THEN I am presented with timeblocks for standard business hours
+WHEN I view the timeblocks for that day
+THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+WHEN I click into a timeblock
+THEN I can enter an event
+WHEN I click the save button for that timeblock
+THEN the text for that event is saved in local storage
+WHEN I refresh the page
+THEN the saved events persist
 ```
 
-### list of questions was in a separate .js file:
+### most of the struggle was with .js file:
 
 ```javascript
-let questions = [
-  {
-    qc: 1,
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
-  },
+    function Crayons() {
+      var currentTime = new Date().getHours();
+      for (var i = 7; i < 22; i++) {
+        // decide what to color, in a loop, for each created row it updates the time and color.
+
+        if ($(`#${i}`).data("time") == currentTime) {
+          $(`#text${i}`).addClass("nearBy");
+        } else if (currentTime < $(`#${i}`).data("time")) {
+          $(`#text${i}`).addClass("upcoming");
+        }
+      }
+    }
+    Crayons();
 ```
 
 ### Saving high scores in local storage turned out to be the easiest part
