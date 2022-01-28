@@ -4,7 +4,7 @@
 
 "A worker from Coasta Rica is so busy that they needed a planner to help them sort the day out, with important events and other things that needed to be done"
 
-Published at: https://https://corhydare.github.io/PlannerOfDays/
+Published at: https://corhydare.github.io/PlannerOfDays/
 
 Following instructions were given:
 
@@ -42,22 +42,15 @@ THEN the saved events persist
     Crayons();
 ```
 
-### Saving high scores in local storage turned out to be the easiest part
+### local storage once again joins in
 
 ```javascript
-if (userScore > window.localStorage.getItem("Score")) {
-    const finalName = prompt("Enter your name to save your score", "Player 1");
-
-    window.localStorage.setItem("Player", finalName);
-    window.localStorage.setItem("Score", userScore);
-
-    document.getElementById("p1").innerHTML =
-      "<span>" +
-      window.localStorage.getItem("Player") +
-      "</span> scored <span>" +
-      window.localStorage.getItem("Score") +
-      " points.</span>";
+function getLocalStorage(ID) {
+  let savings = localStorage.getItem(ID);
+  if (savings) {
+    $(`#text${ID}`).text(savings);
   }
+}
 ```
 
 ## Prompts
