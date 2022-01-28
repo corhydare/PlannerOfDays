@@ -60,43 +60,21 @@ spening more time with styling now. pretty things are beatiful:
 ### text area cleaning
 
 ```css
-      background: transparent;
+    background: transparent;
     border: none;
     outline: none;
     resize: none;
 ```
 
-### Timer only ran during the quiz:
+### body needed side scrolling removed and nice background added
 
-```javascript
-function countdown(time) {
-  counter = setInterval(timer, 1000);
-  function timer() {
-    timeCount.textContent = time;
-    time--;
-    if (time < 0) {
-      clearInterval(counter);
-      showResult();
-    }
-  }
-}
+```css
+overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(#F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
 ```
 
-### questions.js file was indexed and separated for insertion:
-
-```javascript
-function countdown(time) {
-  counter = setInterval(timer, 1000);
-  function timer() {
-    timeCount.textContent = time;
-    time--;
-    if (time < 0) {
-      clearInterval(counter);
-      showResult();
-    }
-  }
-}
-```
 ## App
 
 ![Quiz is progress](screen.png)
