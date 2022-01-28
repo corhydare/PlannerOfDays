@@ -6,9 +6,7 @@ $(document).ready(function () {
     const row = $(`<div data-time=${i} id='${i}' class="row time">`);
 
     // creates time-stamp
-    const col1 = $(
-      `<div class="col-sm-2"><p class="hour">${formatAMPM(i)}00</p>`
-    );
+    const col1 = $(`<div class="col-sm-2"><p class="hour">${mTime(i)}00</p>`);
 
     // memo to save for each hour
     const col2 = $(
@@ -49,13 +47,13 @@ $(document).ready(function () {
 
   //  we're using 24 hour format, because it's better
 
-  function formatAMPM(hours) {
+  function mTime(hours) {
     hours = hours % 24;
     hours = hours ? hours : 24;
     return hours;
   }
   // changing form am to 24
-  formatAMPM();
+  mTime();
 
   // make save button work again
   const save = $(".save");
@@ -67,8 +65,8 @@ $(document).ready(function () {
 });
 // we call local storage for savings
 function getLocalStorage(ID) {
-  let value = localStorage.getItem(ID);
-  if (value) {
-    $(`#text${ID}`).text(value);
+  let savings = localStorage.getItem(ID);
+  if (savings) {
+    $(`#text${ID}`).text(savings);
   }
 }
