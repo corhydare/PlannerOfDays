@@ -29,7 +29,7 @@ $(document).ready(function () {
     // color function stays within creating loop to and paints each new row
     //  the only variable that can't be constant
 
-    function updateColors() {
+    function Crayons() {
       var currentTime = new Date().getHours();
       for (var i = 7; i < 22; i++) {
         // decide what to color, in a loop, for each created row it updates the time and color.
@@ -41,7 +41,7 @@ $(document).ready(function () {
         }
       }
     }
-    updateColors();
+    Crayons();
     getLocalStorage(i);
   }
 
