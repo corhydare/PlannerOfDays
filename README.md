@@ -1,104 +1,84 @@
-# Javascript Quiz project
+# Day Planning
 
 ## Description
 
 "A worker from Coasta Rica is so busy that they needed a planner to help them sort the day out, with important events and other things that needed to be done"
 
-Published at: https://https://corhydare.github.io/PlannerOfDays/
+Published at: https://corhydare.github.io/PlannerOfDays/
 
 Following instructions were given:
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+```md
+GIVEN I am using a daily planner to create a schedule
+WHEN I open the planner
+THEN the current day is displayed at the top of the calendar
+WHEN I scroll down
+THEN I am presented with timeblocks for standard business hours
+WHEN I view the timeblocks for that day
+THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+WHEN I click into a timeblock
+THEN I can enter an event
+WHEN I click the save button for that timeblock
+THEN the text for that event is saved in local storage
+WHEN I refresh the page
+THEN the saved events persist
 ```
 
-### list of questions was in a separate .js file:
+### most of the struggle was with .js file:
 
 ```javascript
-let questions = [
-  {
-    qc: 1,
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
-  },
-```
+    function Crayons() {
+      var currentTime = new Date().getHours();
+      for (var i = 7; i < 22; i++) {
+        // decide what to color, in a loop, for each created row it updates the time and color.
 
-### Saving high scores in local storage turned out to be the easiest part
-
-```javascript
-if (userScore > window.localStorage.getItem("Score")) {
-    const finalName = prompt("Enter your name to save your score", "Player 1");
-
-    window.localStorage.setItem("Player", finalName);
-    window.localStorage.setItem("Score", userScore);
-
-    document.getElementById("p1").innerHTML =
-      "<span>" +
-      window.localStorage.getItem("Player") +
-      "</span> scored <span>" +
-      window.localStorage.getItem("Score") +
-      " points.</span>";
-  }
-```
-
-## Prompts
-
-In order to keep the quiz clean within a single page there was a need for temproray element removal:
-
-### add one "window" and remove another
-
-```javascript
-  qFrame.classList.add("activeQuiz");
-  finalDiv.classList.remove("activeResult");
-```
-
-### Timer only ran during the quiz:
-
-```javascript
-function countdown(time) {
-  counter = setInterval(timer, 1000);
-  function timer() {
-    timeCount.textContent = time;
-    time--;
-    if (time < 0) {
-      clearInterval(counter);
-      showResult();
+        if ($(`#${i}`).data("time") == currentTime) {
+          $(`#text${i}`).addClass("nearBy");
+        } else if (currentTime < $(`#${i}`).data("time")) {
+          $(`#text${i}`).addClass("upcoming");
+        }
+      }
     }
+    Crayons();
+```
+
+### local storage once again joins in
+
+```javascript
+function getLocalStorage(ID) {
+  let savings = localStorage.getItem(ID);
+  if (savings) {
+    $(`#text${ID}`).text(savings);
   }
 }
 ```
 
-### questions.js file was indexed and separated for insertion:
+## Styling
 
-```javascript
-function countdown(time) {
-  counter = setInterval(timer, 1000);
-  function timer() {
-    timeCount.textContent = time;
-    time--;
-    if (time < 0) {
-      clearInterval(counter);
-      showResult();
-    }
-  }
-}
+spening more time with styling now. pretty things are beatiful:
+
+### text area cleaning
+
+```css
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
 ```
+
+### body needed side scrolling removed and nice background added
+
+```css
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(#F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
+```
+
 ## App
 
 ![Quiz is progress](screen.png)
 
 ## Conclusion
 
-With this section it was neccesary to review a lot of course work, as class time did not adequately prepare me for this project.
-Nevertheless the final product was pleasing, especially since I understood how I got there.
+Things are starting to make more and more sense. I'm content.
