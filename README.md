@@ -53,15 +53,17 @@ function getLocalStorage(ID) {
 }
 ```
 
-## Prompts
+## Styling
 
-In order to keep the quiz clean within a single page there was a need for temproray element removal:
+spening more time with styling now. pretty things are beatiful:
 
-### add one "window" and remove another
+### text area cleaning
 
-```javascript
-  qFrame.classList.add("activeQuiz");
-  finalDiv.classList.remove("activeResult");
+```css
+      background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
 ```
 
 ### Timer only ran during the quiz:
