@@ -69,7 +69,7 @@ spening more time with styling now. pretty things are beatiful:
 ### body needed side scrolling removed and nice background added
 
 ```css
-overflow-x: hidden;
+    overflow-x: hidden;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-image: linear-gradient(#F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
@@ -81,5 +81,4 @@ overflow-x: hidden;
 
 ## Conclusion
 
-With this section it was neccesary to review a lot of course work, as class time did not adequately prepare me for this project.
-Nevertheless the final product was pleasing, especially since I understood how I got there.
+Things are starting to make more and more sense. I'm content.
